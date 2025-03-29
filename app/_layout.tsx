@@ -36,6 +36,10 @@ export default function RootLayout() {
       <Stack>
         <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
         <Stack.Screen name='register/index' options={{ headerShown: false }} />
+        <Stack.Screen
+          name='product/detail/[id]'
+          options={{ headerShown: false }}
+        />
         <Stack.Screen name='+not-found' />
       </Stack>
       <StatusBar style='auto' />
