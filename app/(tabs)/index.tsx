@@ -1,62 +1,68 @@
+import SearchBar from '@/components/inputs/SearchBar'
+import ProductList from '@/components/products/ProductList'
+import BannerCarousel from '@/components/ui/Banner'
+import { Ionicons } from '@expo/vector-icons'
 import { Link } from 'expo-router'
 import React from 'react'
-import { ImageBackground, StyleSheet, View, Text } from 'react-native'
+import {
+  ImageBackground,
+  StyleSheet,
+  View,
+  Text,
+  Image,
+  SafeAreaView,
+} from 'react-native'
+import { ScrollView } from 'react-native-gesture-handler'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
 
 export default function HomeScreen() {
   return (
-    <ImageBackground
-      source={require('../../assets/images/delivery.jpg')}
-      style={styles.background}
-      resizeMode='cover'
-    >
-      <View style={styles.overlay}>
-        <Text style={styles.text}>Welcome to our store</Text>
-        <Text style={styles.subtitle}>
-          Get your groceries in as fast as one hour
-        </Text>
-        <Link href='/register' style={styles.button}>
-          <Text style={styles.buttonText}>Get Started</Text>
-        </Link>
-      </View>
-    </ImageBackground>
+    <SafeAreaProvider>
+      <ScrollView>
+        <View style={styles.container}>
+          <View style={styles.section}>
+            <Image source={require('./../../assets/images/carrot.png')} />
+            <View style={styles.header}>
+              <Ionicons name='location' size={20} color='#4C4F4D' />
+              <Text style={[{ color: '#4C4F4D', fontWeight: 600 }]}>
+                Dhaka, Banassre
+              </Text>
+            </View>
+            <SearchBar />
+            <BannerCarousel />
+          </View>
+          <View style={styles.products}>
+            <Text style={styles.title}>Exclusive Offer</Text>
+            <ProductList />
+          </View>
+          <View style={styles.products}>
+            <Text style={styles.title}>Best Selling</Text>
+            <ProductList />
+          </View>
+        </View>
+      </ScrollView>
+    </SafeAreaProvider>
   )
 }
 
 const styles = StyleSheet.create({
-  background: {
-    flex: 1,
+  container: {
+    flex: 1, // Asegura que ocupa toda la pantalla
+    backgroundColor: '#fff',
   },
-  overlay: {
-    position: 'absolute',
-    bottom: 40,
-    left: 0,
-    right: 0,
-    padding: 40,
+  header: {
+    display: 'flex',
+    flexDirection: 'row',
+    marginTop: 10,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 600,
+  },
+  section: {
     alignItems: 'center',
   },
-  text: {
-    color: '#fff',
-    fontSize: 48,
-    fontWeight: '600',
-    textAlign: 'center',
-  },
-  subtitle: {
-    color: '#fff',
-    fontSize: 15,
-    marginBottom: 10,
-    textAlign: 'center',
-  },
-  button: {
-    backgroundColor: '#53B175',
-    width: '100%',
-    paddingVertical: 15,
-    borderRadius: 8,
-    alignItems: 'center',
-    textAlign: 'center',
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 18,
-    fontWeight: 'bold',
+  products: {
+    margin: 10,
   },
 })
