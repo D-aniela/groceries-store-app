@@ -11,14 +11,17 @@ import {
   Text,
   Image,
   SafeAreaView,
+  ScrollView,
 } from 'react-native'
-import { ScrollView } from 'react-native-gesture-handler'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
+// import { Asset } from 'expo-asset'
+
+// const getImage = (imagePath: string) => Asset.fromModule(imagePath).uri
 
 export default function HomeScreen() {
   return (
-    <SafeAreaProvider>
-      <ScrollView>
+    <SafeAreaProvider style={styles.area}>
+      <ScrollView style={{ flex: 1 }}>
         <View style={styles.container}>
           <View style={styles.section}>
             <Image source={require('./../../assets/images/carrot.png')} />
@@ -32,7 +35,18 @@ export default function HomeScreen() {
             <BannerCarousel />
           </View>
           <View style={styles.products}>
-            <Text style={styles.title}>Exclusive Offer</Text>
+            <View
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+              }}
+            >
+              <Text style={styles.title}>Exclusive Offer</Text>
+              <Link href='/explore' style={{ color: '#53B175' }}>
+                See all
+              </Link>
+            </View>
             <ProductList />
           </View>
           <View style={styles.products}>
@@ -46,6 +60,11 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
+  area: {
+    backgroundColor: '#fff',
+    paddingTop: 50,
+    paddingBottom: 100,
+  },
   container: {
     flex: 1, // Asegura que ocupa toda la pantalla
     backgroundColor: '#fff',
@@ -57,7 +76,8 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    fontWeight: 600,
+    fontWeight: '600',
+    marginBottom: 10,
   },
   section: {
     alignItems: 'center',

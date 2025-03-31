@@ -14,6 +14,7 @@ import { Ionicons } from '@expo/vector-icons'
 const { width } = Dimensions.get('window')
 
 export type TProduct = {
+  id: string
   image: ImageSourcePropType
   quantity: string
   name: string
@@ -90,9 +91,8 @@ const styles = StyleSheet.create({
     padding: 15,
     marginHorizontal: 10,
     alignItems: 'center',
-    shadowColor: '#000',
-    shadowOpacity: 0.1,
-    shadowRadius: 10,
+    borderWidth: 0.5,
+    borderColor: '#7C7C7C',
     elevation: 5,
   },
   image: {

@@ -89,6 +89,7 @@ export default BannerCarousel
 const styles = StyleSheet.create({
   container: {
     marginVertical: 10,
+    height: 180,
   },
   banner: {
     width: width - 20,
