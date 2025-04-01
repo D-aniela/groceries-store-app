@@ -1,20 +1,12 @@
+import React from 'react'
+import { Link } from 'expo-router'
+import { Ionicons } from '@expo/vector-icons'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
+import { StyleSheet, View, Text, Image, ScrollView } from 'react-native'
+
 import SearchBar from '@/components/inputs/SearchBar'
 import ProductList from '@/components/products/ProductList'
 import BannerCarousel from '@/components/ui/Banner'
-import { Ionicons } from '@expo/vector-icons'
-import { Link } from 'expo-router'
-import React from 'react'
-import {
-  ImageBackground,
-  StyleSheet,
-  View,
-  Text,
-  Image,
-  SafeAreaView,
-  ScrollView,
-} from 'react-native'
-import { SafeAreaProvider } from 'react-native-safe-area-context'
-// import { Asset } from 'expo-asset'
 
 // const getImage = (imagePath: string) => Asset.fromModule(imagePath).uri
 

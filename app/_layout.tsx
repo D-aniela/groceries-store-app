@@ -35,6 +35,7 @@ export default function RootLayout() {
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
         <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
+        <Stack.Screen name='beverages/index' options={{ headerShown: false }} />
         <Stack.Screen name='register/index' options={{ headerShown: false }} />
         <Stack.Screen
           name='product/detail/[id]'

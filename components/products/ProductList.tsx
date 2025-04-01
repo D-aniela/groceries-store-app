@@ -1,15 +1,11 @@
 import React from 'react'
 import {
-  View,
-  Text,
-  Image,
   FlatList,
   StyleSheet,
-  TouchableOpacity,
   Dimensions,
   ImageSourcePropType,
 } from 'react-native'
-import { Ionicons } from '@expo/vector-icons'
+import ProductCard from '../ui/ProductCard'
 
 const { width } = Dimensions.get('window')
 
@@ -52,18 +48,6 @@ const products = [
     image: require('../../assets/images/apple.png'),
   },
 ]
-
-const ProductCard = ({ item }: { item: TProduct }) => (
-  <View style={styles.card}>
-    <Image source={item.image} style={styles.image} />
-    <Text style={styles.name}>{item.name}</Text>
-    <Text style={styles.quantity}>{item.quantity}, Price</Text>
-    <Text style={styles.price}>{item.price}</Text>
-    <TouchableOpacity style={styles.addButton}>
-      <Ionicons name='add' size={24} color='#fff' />
-    </TouchableOpacity>
-  </View>
-)
 
 const ProductList = () => {
   return (
