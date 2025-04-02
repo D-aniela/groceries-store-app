@@ -12,8 +12,8 @@ export function Header({ title, search }: THeader) {
       <Text
         style={
           !search
-            ? { fontWeight: 'semibold', fontSize: 20, marginBottom: 15 }
-            : { fontWeight: 'semibold', fontSize: 20 }
+            ? { fontWeight: 600, fontSize: 20, marginBottom: 15 }
+            : { fontWeight: 600, fontSize: 20 }
         }
       >
         {title}
