@@ -25,10 +25,12 @@ const ProductCard = ({ item }: { item: TProduct }) => {
       <Image source={item.image} style={styles.image} />
       <Text style={styles.name}>{item.name}</Text>
       <Text style={styles.quantity}>{item.quantity}, Price</Text>
-      <Text style={styles.price}>{item.price}</Text>
-      <TouchableOpacity style={styles.addButton}>
-        <Ionicons name='add' size={24} color='#fff' />
-      </TouchableOpacity>
+      <View style={styles.control}>
+        <Text style={styles.price}>{item.price}</Text>
+        <TouchableOpacity style={styles.addButton}>
+          <Ionicons name='add' size={24} color='#fff' />
+        </TouchableOpacity>
+      </View>
     </View>
   )
 }
@@ -40,13 +42,19 @@ const styles = StyleSheet.create({
     width: width * 0.4,
     backgroundColor: '#fff',
     borderRadius: 15,
-    padding: 15,
+    padding: 10,
     marginHorizontal: 10,
     alignItems: 'center',
     borderWidth: 0.5,
     borderColor: '#7C7C7C',
     elevation: 5,
     marginBottom: 10,
+  },
+  control: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: 10,
   },
   name: {
     fontSize: 16,
@@ -58,11 +66,13 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: 'gray',
     marginTop: 5,
+    textAlign: 'left',
   },
   price: {
     fontSize: 18,
     fontWeight: 'bold',
     marginTop: 5,
+    marginRight: 30,
   },
   image: {
     width: 80,
@@ -72,8 +82,8 @@ const styles = StyleSheet.create({
   addButton: {
     width: 35,
     height: 35,
-    borderRadius: 20,
-    backgroundColor: '#4CAF50',
+    borderRadius: 12,
+    backgroundColor: '#53B175',
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 10,
