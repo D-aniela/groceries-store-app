@@ -8,6 +8,7 @@ import {
   View,
 } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
+import { useRouter } from 'expo-router'
 
 const { width } = Dimensions.get('window')
 
@@ -20,18 +21,26 @@ export type TProduct = {
 }
 
 const ProductCard = ({ item }: { item: TProduct }) => {
+  const router = useRouter()
+
+  const handlePress = () => {
+    router.push(`/product/detail/${item.id}`)
+  }
+
   return (
-    <View style={styles.card}>
-      <Image source={item.image} style={styles.image} />
-      <Text style={styles.name}>{item.name}</Text>
-      <Text style={styles.quantity}>{item.quantity}, Price</Text>
-      <View style={styles.control}>
-        <Text style={styles.price}>{item.price}</Text>
-        <TouchableOpacity style={styles.addButton}>
-          <Ionicons name='add' size={24} color='#fff' />
-        </TouchableOpacity>
+    <TouchableOpacity onPress={handlePress}>
+      <View style={styles.card}>
+        <Image source={item.image} style={styles.image} />
+        <Text style={styles.name}>{item.name}</Text>
+        <Text style={styles.quantity}>{item.quantity}, Price</Text>
+        <View style={styles.control}>
+          <Text style={styles.price}>{item.price}</Text>
+          <TouchableOpacity style={styles.addButton}>
+            <Ionicons name='add' size={24} color='#fff' />
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
+    </TouchableOpacity>
   )
 }
 

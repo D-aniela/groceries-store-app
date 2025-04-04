@@ -36,6 +36,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
+    width: '100%',
+    alignSelf: 'stretch',
   },
   text: {
     fontSize: 16,

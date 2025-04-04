@@ -4,10 +4,16 @@ import NumericInput from '@/components/inputs/NumericInput'
 import Divider from '@/components/ui/Divider'
 import CustomButton from '@/components/ui/Button'
 import { Ionicons } from '@expo/vector-icons'
+import { useLocalSearchParams } from 'expo-router'
+import { Collapsible } from '@/components/Collapsible'
+import NavigationButtons from '@/components/ui/NavigationButtons'
 
 export default function ProductDetail({}) {
+  const { id } = useLocalSearchParams()
+
   return (
     <View style={styles.container}>
+      <NavigationButtons />
       <View style={styles.imageContainer}>
         <Image
           style={styles.topImage}
@@ -21,15 +27,23 @@ export default function ProductDetail({}) {
       </View>
       <Divider />
       <View style={styles.text}>
-        <Text style={styles.title_text}>Product Detail</Text>
-        <Text style={styles.subTitle}>
-          Apples are nutritious. Apples may be good for weight loss. apples may
-          be good for your heart. As part of a healtful and varied diet.
-        </Text>
+        <Collapsible title={'Product Detail'}>
+          <Text style={styles.subTitle}>
+            Apples are nutritious. Apples may be good for weight loss. apples
+            may be good for your heart. As part of a healtful and varied diet.
+          </Text>
+        </Collapsible>
       </View>
       <Divider />
       <View style={styles.text}>
-        <Text style={styles.title_text}>Nutritions</Text>
+        <Collapsible title={'Nutritions'}>
+          <Text style={styles.subTitle}>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, optio
+            saepe. Similique enim hic, cupiditate, assumenda repellendus
+            deleniti officia at nemo ipsum natus, doloribus nobis minima iure
+            esse cumque optio.
+          </Text>
+        </Collapsible>
       </View>
       <Divider />
       <View style={styles.review}>
@@ -48,10 +62,10 @@ export default function ProductDetail({}) {
             ))}
         </View>
       </View>
-      <View style={styles.text}>
+      <View style={styles.fixedButton}>
         <CustomButton
           title='Add To Basket'
-          onPress={() => console.log('Button Pressed')}
+          onPress={() => console.log('Added to Basket')}
         />
       </View>
     </View>
@@ -97,5 +111,15 @@ const styles = StyleSheet.create({
   topImage: {
     width: 330,
     height: 200,
+  },
+  fixedButton: {
+    position: 'absolute',
+    bottom: 0,
+    width: '100%', // Se asegura que abarque todo el ancho
+    backgroundColor: '#fff',
+    padding: 16,
+    alignItems: 'center',
+    borderTopWidth: 1,
+    borderColor: '#E5E5E5',
   },
 })
